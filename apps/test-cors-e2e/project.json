@@ -1,0 +1,28 @@
+{
+  "root": "apps/test-cors-e2e",
+  "sourceRoot": "apps/test-cors-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/test-cors-e2e/cypress.json",
+        "devServerTarget": "test-cors:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "test-cors:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/test-cors-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["test-cors"]
+}
